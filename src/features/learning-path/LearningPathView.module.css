@@ -1,0 +1,123 @@
+.introduction {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sectionLabel {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.introduction h2 {
+  max-width: 36rem;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+}
+
+.supportingText {
+  max-width: 20rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.moduleList {
+  display: grid;
+  gap: 1rem;
+}
+
+.module {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-surface);
+}
+
+.moduleHeading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.moduleHeading h3 {
+  font-size: 1.3rem;
+}
+
+.moduleHeading p {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+}
+
+.moduleNumber {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 3rem;
+  place-items: center;
+  border-radius: 0.8rem;
+  color: var(--color-accent-strong);
+  background: var(--color-accent-soft);
+  font-weight: 800;
+}
+
+.lessonList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lessonButton {
+  display: grid;
+  width: 100%;
+  gap: 0.3rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  color: var(--color-text);
+  background: var(--color-background);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.lessonButton:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-0.1rem);
+}
+
+.lessonPosition,
+.lessonMeta {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.lessonTitle {
+  font-weight: 800;
+}
+
+.lessonTitleSupport {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 40rem) {
+  .introduction {
+    display: block;
+  }
+
+  .supportingText {
+    margin-top: 0.75rem;
+  }
+}

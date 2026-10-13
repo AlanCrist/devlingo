@@ -1,0 +1,227 @@
+.backButton {
+  padding: 0;
+  border: 0;
+  color: var(--color-accent-strong);
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lessonHeader {
+  margin: 2rem 0;
+}
+
+.lessonHeader h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.lessonPosition,
+.cardLabel {
+  margin: 0 0 0.55rem;
+  color: var(--color-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.supportText {
+  margin: 0.55rem 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.studyContent {
+  display: grid;
+  gap: 1rem;
+}
+
+.contentCard,
+.exerciseCard {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-surface);
+}
+
+.contentCard h3,
+.exerciseCard h3 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.contentCard > p:not(.cardLabel) {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.vocabularyList {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+}
+
+.vocabularyItem {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.vocabularyItem:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.vocabularyItem dt {
+  font-weight: 800;
+}
+
+.vocabularyItem dd {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.vocabularyItem dd em {
+  color: var(--color-text);
+}
+
+.exerciseCard {
+  position: sticky;
+  top: 1rem;
+}
+
+.exerciseHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.exerciseHeader .cardLabel {
+  margin: 0;
+}
+
+.options {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  border: 0;
+}
+
+.option {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.option:has(input:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.option span {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.option small {
+  color: var(--color-text-muted);
+}
+
+.primaryButton,
+.secondaryButton {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 0.65rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primaryButton {
+  border: 1px solid var(--color-accent-strong);
+  color: white;
+  background: var(--color-accent-strong);
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.validationMessage {
+  margin: 0 0 1rem;
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+.feedback,
+.completion {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  line-height: 1.5;
+}
+
+.feedback p,
+.completion p {
+  margin: 0.45rem 0 0;
+}
+
+.correct {
+  border: 1px solid var(--color-success-border);
+  color: var(--color-success-text);
+  background: var(--color-success-background);
+}
+
+.incorrect {
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  background: var(--color-warning-background);
+}
+
+.completion {
+  border: 1px solid var(--color-accent);
+  color: var(--color-text);
+  background: var(--color-accent-soft);
+}
+
+.completion .primaryButton {
+  margin-top: 1rem;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 52rem) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .exerciseCard {
+    position: static;
+  }
+}
