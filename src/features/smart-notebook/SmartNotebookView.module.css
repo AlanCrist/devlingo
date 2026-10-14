@@ -1,0 +1,327 @@
+.introduction,
+.detailHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sectionLabel {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.introduction h2,
+.detailHeader h2,
+.reviewCard h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.supportingText,
+.muted {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.quickAdd,
+.card,
+.reviewCard,
+.emptyState {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-surface);
+}
+
+.quickAdd {
+  grid-template-columns: 1fr 1.5fr auto;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.quickAdd label,
+.card label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.55rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.toolbar,
+.filters,
+.actions,
+.cardHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.toolbar {
+  justify-content: space-between;
+  margin: 1.5rem 0 1rem;
+}
+
+.toolbar label {
+  flex: 1;
+  max-width: 28rem;
+}
+
+.filter,
+.filterActive,
+.primaryButton,
+.secondaryButton,
+.dangerButton,
+.backButton {
+  border-radius: 0.6rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filter,
+.filterActive {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.filterActive {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+  background: var(--color-accent-soft);
+}
+
+.recordList,
+.detailGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.recordCard {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.recordCard:hover {
+  border-color: var(--color-accent);
+}
+
+.recordTerm {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.recordContext,
+.recordMeta {
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.recordMeta {
+  font-size: 0.85rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+  padding: 0.75rem 0.9rem;
+}
+
+.primaryButton {
+  border: 1px solid var(--color-accent-strong);
+  color: white;
+  background: var(--color-accent-strong);
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.dangerButton {
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  background: var(--color-surface);
+}
+
+.backButton {
+  padding: 0;
+  border: 0;
+  color: var(--color-accent-strong);
+  background: transparent;
+}
+
+.detailGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detailGrid .card:last-child {
+  grid-column: 1 / -1;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.meanings,
+.practiceList {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.meanings li {
+  display: grid;
+  gap: 0.25rem;
+  line-height: 1.45;
+}
+
+.meanings small,
+.meanings em {
+  color: var(--color-text-muted);
+}
+
+.practiceItem {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.practiceItem:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.practiceItem p {
+  margin: 0 0 0.4rem;
+  line-height: 1.5;
+}
+
+.practiceComposer {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+
+.warning,
+.success,
+.validationMessage {
+  margin: 0;
+  padding: 0.7rem;
+  border-radius: 0.55rem;
+  line-height: 1.45;
+}
+
+.warning {
+  color: var(--color-warning-text);
+  background: var(--color-warning-background);
+}
+
+.warning small {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.success {
+  color: var(--color-success-text);
+  background: var(--color-success-background);
+}
+
+.validationMessage {
+  color: var(--color-danger);
+  background: #fff1f0;
+}
+
+.reviewCard {
+  max-width: 52rem;
+  margin: 2rem auto 0;
+}
+
+.reviewCard blockquote {
+  margin: 0;
+  padding: 1rem;
+  border-left: 0.25rem solid var(--color-accent);
+  color: var(--color-text-muted);
+  background: var(--color-accent-soft);
+  line-height: 1.6;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 48rem) {
+  .introduction,
+  .detailHeader,
+  .toolbar {
+    display: block;
+  }
+
+  .supportingText {
+    margin-top: 0.75rem;
+  }
+
+  .quickAdd,
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailGrid .card:last-child {
+    grid-column: auto;
+  }
+
+  .actions,
+  .filters {
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .toolbar label {
+    display: block;
+    max-width: none;
+  }
+
+  .filters {
+    margin-top: 0.75rem;
+  }
+}

@@ -30,7 +30,7 @@ describe('application shell', () => {
   it('renders all modules and allows direct access to a later lesson', () => {
     render(<App />)
 
-    expect(screen.getAllByRole('button')).toHaveLength(6)
+    expect(screen.getAllByRole('button', { name: /Lesson/ })).toHaveLength(6)
     fireEvent.click(
       screen.getByRole('button', { name: /Reading technical documentation/i }),
     )
@@ -110,7 +110,44 @@ describe('application shell', () => {
 
     render(<App />)
 
-    expect(screen.getAllByRole('button')).toHaveLength(6)
+    expect(screen.getAllByRole('button', { name: /Lesson/ })).toHaveLength(6)
     expect(screen.queryByText(/Best score/)).not.toBeInTheDocument()
+  })
+
+  it('opens the Smart Notebook and saves a contextual record', () => {
+    render(<App />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Smart Notebook' }))
+    fireEvent.change(screen.getByLabelText('Word or expression'), {
+      target: { value: 'run into' },
+    })
+    fireEvent.change(screen.getByLabelText('Source sentence (optional)'), {
+      target: { value: 'I ran into an issue.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Save term' }))
+
+    expect(
+      screen.getByRole('heading', { name: 'run into' }),
+    ).toBeInTheDocument()
+    expect(screen.getByDisplayValue('I ran into an issue.')).toBeInTheDocument()
+  })
+
+  it('validates practice sentences before saving them', () => {
+    render(<App />)
+    fireEvent.click(screen.getByRole('button', { name: 'Smart Notebook' }))
+    fireEvent.change(screen.getByLabelText('Word or expression'), {
+      target: { value: 'deploy' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Save term' }))
+
+    fireEvent.change(
+      screen.getByPlaceholderText('Write your sentence in English'),
+      {
+        target: { value: 'This is unrelated.' },
+      },
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Check and save' }))
+
+    expect(screen.getByText(/Use the saved term/)).toBeInTheDocument()
   })
 })

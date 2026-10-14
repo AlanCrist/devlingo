@@ -13,15 +13,25 @@ import {
 } from './domain/lesson-results'
 import type { Lesson } from './domain/content-types'
 import type { LessonAttempt, ProgressState } from './domain/progress-types'
+import type { NotebookState } from './domain/notebook-types'
 import { createLocalStorageProgressStorage } from './persistence/progress-storage'
+import { createLocalStorageNotebookStorage } from './persistence/notebook-storage'
 import { LessonView } from './features/lesson/LessonView'
 import { LearningPathView } from './features/learning-path/LearningPathView'
+import { SmartNotebookView } from './features/smart-notebook/SmartNotebookView'
 import styles from './App.module.css'
 
 function App() {
   const [progressStorage] = useState(createLocalStorageProgressStorage)
+  const [notebookStorage] = useState(createLocalStorageNotebookStorage)
   const [progress, setProgress] = useState<ProgressState>(() =>
     progressStorage.load(),
+  )
+  const [notebook, setNotebook] = useState<NotebookState>(() =>
+    notebookStorage.load(),
+  )
+  const [appSection, setAppSection] = useState<'learning' | 'notebook'>(
+    'learning',
   )
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null)
   const [attempt, setAttempt] = useState<LessonAttempt | null>(null)
@@ -42,6 +52,11 @@ function App() {
     setAttempt(null)
     setCompletionResult(null)
     setSubmissionMessage(null)
+  }
+
+  const handleNotebookChange = (nextNotebook: NotebookState) => {
+    setNotebook(nextNotebook)
+    notebookStorage.save(nextNotebook)
   }
 
   const handleSelectAnswer = (optionId: string) => {
@@ -129,6 +144,28 @@ function App() {
         <p className={styles.tagline}>
           Build confidence for everyday software development communication.
         </p>
+        {!selectedLesson && (
+          <nav className={styles.navigation} aria-label="Main navigation">
+            <button
+              className={
+                appSection === 'learning' ? styles.navActive : styles.navButton
+              }
+              type="button"
+              onClick={() => setAppSection('learning')}
+            >
+              Learning path
+            </button>
+            <button
+              className={
+                appSection === 'notebook' ? styles.navActive : styles.navButton
+              }
+              type="button"
+              onClick={() => setAppSection('notebook')}
+            >
+              Smart Notebook
+            </button>
+          </nav>
+        )}
       </header>
 
       {selectedLesson && attempt ? (
@@ -143,12 +180,14 @@ function App() {
           onNextExercise={handleNextExercise}
           onRepeatLesson={handleRepeatLesson}
         />
-      ) : (
+      ) : appSection === 'learning' ? (
         <LearningPathView
           learningPath={learningPath}
           progress={progress}
           onSelectLesson={openLesson}
         />
+      ) : (
+        <SmartNotebookView state={notebook} onChange={handleNotebookChange} />
       )}
     </main>
   )
