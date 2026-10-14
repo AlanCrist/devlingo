@@ -495,7 +495,7 @@ This task may begin only after all listed dependencies, including TB-015, are co
 
 **Traceability:** All applicable Specification Acceptance Criteria, especially 1 through 24; Plan section 8.5.
 
-**Implementation status:** Implemented. Chromium and WebKit scenarios pass; Firefox execution remains blocked by the local Playwright Firefox process hanging before test completion.
+**Task status:** Completed. The full E2E suite passes in Chromium, Firefox, and WebKit.
 
 ### TB-018 — Complete accessibility and responsive validation
 
@@ -546,7 +546,7 @@ This task may begin only after all listed dependencies, including TB-015, are co
 
 TB-019 is the final traceability consolidation task for the feature and validation work. It starts only after TB-017 and TB-018 are complete.
 
-**Task status:** Pending TB-017 completion in the supported browser matrix.
+**Task status:** Completed. Every acceptance criterion has a verification reference, including automated and manual checks.
 
 ## 9. Phase 6 — Build and Deployment
 
@@ -574,7 +574,7 @@ TB-019 is the final traceability consolidation task for the feature and validati
 
 **Traceability:** Specification Technical and Quality Goals 1, 3, 5, and 7; NFR-004; Plan sections 10 and 11.
 
-**Task status:** Pending TB-019 and TB-021 completion.
+**Task status:** Completed. The GitHub Pages workflow, deployment base path, and deployment documentation are configured.
 
 ### TB-021 — Add final quality gate
 
@@ -600,7 +600,7 @@ TB-019 is the final traceability consolidation task for the feature and validati
 
 **Traceability:** Specification NFR-004 through NFR-009; Acceptance Criterion 27; Plan sections 8 and 10.
 
-**Implementation status:** Implemented. All non-browser quality stages pass; the full gate remains pending Firefox matrix validation.
+**Task status:** Completed. The complete quality gate passes, including all three browser projects.
 
 ## 10. Dependency and Parallelization Summary
 
